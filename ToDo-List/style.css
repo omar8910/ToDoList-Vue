@@ -1,0 +1,217 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #222222;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  margin: auto;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+  padding: 1.5em;
+}
+
+h1{
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+input{
+  width: 50%;
+  padding: 2%;
+  font-size: 1.5em;
+  border-radius: 1rem;
+  margin-bottom: 1.5%;
+  border: none;
+  outline: none;
+  background-color: #303030;
+  box-shadow: 2px 2px 0px 0px rgb(167, 166, 166);
+  color: whitesmoke;
+}
+
+input::placeholder{
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+#container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.selectFiltro{
+  margin-top: 1em;
+}
+
+#tareasPendientes{
+  text-align: center;
+  border-bottom: 2px solid gray;
+  border-top: 2px solid gray;
+  padding: 20px;
+}
+
+#tareasPendientes #borrarNotas{
+  color: #F39C12;
+}
+
+#tareasPendientes #borrarNotas:hover{
+  cursor: pointer;
+  color: #F1C40F;
+}
+
+#filtroPorPrioridad{
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.567);
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.notaIndividual{
+  background-color: #303030;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 0px 0px rgb(167, 166, 166),
+              7px 7px 9px 0px rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.texto--nota{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px;
+}
+
+.texto--nota h2{
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.datos--nota{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 2rem;
+  color: #848484;
+}
+
+.datos--nota button{
+  background-color: #464545;
+  color: white;
+  border: none;
+  padding: 0.3rem;
+  cursor: pointer;
+  color: #848484;
+}
+
+.fa_circle{
+  scale: 1.5;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  border: 2px solid gray;
+}
+
+.fa-square-minus{
+  color: #E74C3C;
+  scale: 3;
+  float: right;
+  margin-right: 0 auto;
+}
+
+
+.fa_check_circle{
+  color: #2ECC71;
+  scale: 1.5;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  border: 2px solid gray;
+  background-color: #0CE3AC;
+  transition: all 0.2s;
+}
+
+.fa-square-minus:hover{
+  cursor: pointer;
+  color: #eb6c5e;
+  transition: 0.2s;
+}
+
+.fa-regular.fa-clock{
+  color: #f9f7f7;
+  scale: 1.2; 
+}
+
+.checked{
+  text-decoration: line-through;
+  color: #00BC8C;
+  transition: all 1.2s;
+}
+
+
+#bajo.marked{
+  background-color: rgb(55, 88, 253);
+  color: rgb(0, 0, 0);
+}
+
+#bajo:hover{
+  background-color: rgb(118, 140, 250);
+  color: rgb(0, 0, 0);
+}
+
+#normal.marked{
+  background-color: #419156;
+  color: white;
+}
+
+#normal:hover{
+  background-color: #59b859;
+  color: white;
+}
+
+#alto.marked{
+  background-color: #ff1900;
+  color: white;
+}
+
+#alto:hover{
+  background-color: #fb4530;
+  color: white;
+}
+
+.fechaCreacion{
+  font-size: 0.8em;
+  color: #848484;
+  font-style: italic;
+
+}
+
+footer{
+  text-align: center;
+  margin-top: 5%;
+}
+
+footer a{
+  color: #0CE3AC;
+  text-decoration: none;
+}

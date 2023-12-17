@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio Notas</title>
+    <script src="https://kit.fontawesome.com/831f9e3cbb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <main id="app">
+        <header>
+            <h1>Proyecto Vue - Omar Q.A</h1>
+            <input type="text" id="inputNota" placeholder="¿Qué quieres recordar?" v-model="nuevaNotaInput"
+                @keyup.enter="crearNuevaNota">
+            <input type="text" id="buscarNota" placeholder="Buscar nota por nombre" v-model="buscarNotaInput"
+                @keyup="buscarNota">
+            <p class="selectFiltro">Filtrar por prioridad:
+                <select id="filtroPorPrioridad" v-model="filtradoPrioridad" @change="buscarNota()">
+                    <option value="">Sin filtrar</option>
+                    <option value="bajo">Bajo</option>
+                    <option value="normal">Normal</option>
+                    <option value="alto">Alto</option>
+                </select>
+            </p>
+        </header>
+        <div id="container">
+            <p id="tareasPendientes">{{notasPendientes}} pendientes de un total de {{totalNotas}} <i
+                    class="fa-solid fa-chart-column"></i> <span id="pendientes"></span> | <span id="borrarNotas"
+                    @click="borrarNotasCompletadas()"><i class="fa-solid fa-x"></i> Borrar tareas completadas</span></p>
+            <div class="notaIndividual" v-for="nota in buscarNota()">
+                <div class="texto--nota">
+                    <i :class='[{fa_circle : !nota.estado, fa_check_circle : nota.estado}, "fa_regular"]'
+                        @click="completarNota(nota)"></i>
+                    <h2 :class="{checked : nota.estado}">{{ nota.nombre }}</h2>
+                    <i class='fa-solid fa-square-minus' @click="eliminarNota(nota)"></i>
+                </div>
+
+                <div class="datos--nota">
+                    <p>Prioridad</p>
+                    <button id='bajo'
+                        :class="{not_marked : nota.prioridad != 'bajo', marked : nota.prioridad == 'bajo'}"
+                        @click="establecerPrioridad(nota, 'bajo')"><i class='fa-solid fa-arrow-down'></i>Bajo</button>
+
+                    <button id='normal'
+                        :class="{not_marked : nota.prioridad != 'normal', marked : nota.prioridad == 'normal'}"
+                        @click="establecerPrioridad(nota, 'normal')">Normal</button>
+
+                    <button id='alto'
+                        :class="{not_marked : nota.prioridad != 'alto', marked : nota.prioridad == 'alto'}"
+                        @click="establecerPrioridad(nota, 'alto')"><i class='fa-solid fa-arrow-up'></i>Alto</button>
+
+                    <i class='fa-regular fa-clock'></i>
+                    <p class="fechaCreacion">Añadido hace {{ calcularFecha(nota) }} minutos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Desarrollado por Omar Qneiby Al-Sarsour</p>
+    </footer>
+    <script src="./vue.js"></script>
+</body>
+
+</html>
